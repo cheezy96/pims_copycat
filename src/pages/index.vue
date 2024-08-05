@@ -23,6 +23,13 @@
               <SupplierComp />
             </v-tabs-window-item>
 
+<<<<<<< HEAD
+=======
+            <v-tabs-window-item value="three">
+              <SupplierComp />
+            </v-tabs-window-item>
+
+>>>>>>> 01c1eec309b037dd1c076281170e2524a6afd2e7
             <v-tabs-window-item value="four"> Three </v-tabs-window-item>
 
             <v-tabs-window-item value="five">
