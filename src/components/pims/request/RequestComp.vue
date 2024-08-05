@@ -30,7 +30,7 @@
             <v-row>
                 <v-data-table :headers="headers" header :items="requestTable" items-per-page="5">
                     <template v-slot:item.prNo="{ value }">
-                        <v-btn size="small" color="info" rounded>
+                        <v-btn size="small" color="primary" rounded>
                             {{ value }}
                         </v-btn>
                     </template>
@@ -43,10 +43,10 @@
 
                     <template v-slot:item.button="{ value }">
                         <td class="d-flex ga-1">
-                            <v-btn size="small" color="info" rounded>
+                            <v-btn size="small" color="primary" rounded>
                                 <v-icon>mdi-printer</v-icon>
                             </v-btn>
-                            <v-btn size="small" color="info" rounded>
+                            <v-btn size="small" color="primary" rounded>
                                 <v-icon>mdi-cog</v-icon>
                             </v-btn>
                         </td>
@@ -104,7 +104,7 @@ let headers = ref([
 function getColor(status) {
     if (status == "new") return "warning"
     else if (status == "cancelled") return "error"
-    else if (status == "received") return "info"
+    else if (status == "received") return "primary"
 } 
 </script>
 
