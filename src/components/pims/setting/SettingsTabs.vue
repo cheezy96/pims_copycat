@@ -1,7 +1,7 @@
 <template>
   <v-container class="d-flex justify-center">
-    <v-card width="8200">
-      <v-tabs v-model="tab" bg-color="white">
+    <v-card width="950">
+      <v-tabs color="primary" v-model="tab">
         <v-tab value="one">Others</v-tab>
         <v-tab value="two">BAC members</v-tab>
         <v-tab value="three">Personnel</v-tab>
@@ -11,10 +11,12 @@
           <v-tabs-window-item value="one"> </v-tabs-window-item>
 
           <v-tabs-window-item value="two">
-            <SettingsTabsBacMembers />
-          </v-tabs-window-item>
+            <SettingsTabsBacMember
+          /></v-tabs-window-item>
 
-          <v-tabs-window-item value="three"> Three </v-tabs-window-item>
+          <v-tabs-window-item value="three">
+            <SettingsTabsPersonnel />
+          </v-tabs-window-item>
         </v-tabs-window>
       </v-card-text>
 
@@ -30,7 +32,8 @@
 
 <script setup>
 import { ref } from "vue";
-import SettingsTabsBacMembers from "./SettingsTabsBacMembers.vue";
+import SettingsTabsPersonnel from "./SettingsTabsPersonnel.vue";
+import SettingsTabsBacMember from "./SettingsTabsBacMember.vue";
 
 let tab = ref(null);
 </script>

@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <div class="h-100">
-      <h1 class="text-h4">Procurement & Inventory Management System</h1>
       <v-card>
         <v-tabs v-model="tab" bg-color="primary">
           <v-tab value="one">MAIN</v-tab>
