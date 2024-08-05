@@ -1,8 +1,6 @@
 <template>
   <v-app>
     <div class="h-100">
-      <h1 class="text-h4">Procurement & Inventory Management System</h1>
-      <v-card>
         <v-tabs v-model="tab" bg-color="primary">
           <v-tab value="one">MAIN</v-tab>
           <v-tab value="two">REQUESTS</v-tab>
@@ -21,14 +19,17 @@
               <RequestComp />
             </v-tabs-window-item>
 
-            <v-tabs-window-item value="three"> Three </v-tabs-window-item>
+            <v-tabs-window-item value="three">
+              <SupplierComp />
+            </v-tabs-window-item>
+
             <v-tabs-window-item value="four"> Three </v-tabs-window-item>
+
             <v-tabs-window-item value="five">
               <SettingsComp />
             </v-tabs-window-item>
           </v-tabs-window>
         </v-card-text>
-      </v-card>
     </div>
   </v-app>
 </template>
@@ -37,6 +38,7 @@
 import RequestComp from "@/components/pims/request/RequestComp.vue";
 import MainComp from "../components/pims/main/MainComp.vue";
 import SettingsComp from "../components/pims/setting/SettingsComp.vue";
+import SupplierComp from "../components/pims/supplier/SupplierComp.vue";
 import { ref } from "vue";
 
 let tab = ref(null);
