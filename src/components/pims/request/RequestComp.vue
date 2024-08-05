@@ -13,9 +13,9 @@
                     <v-select label="Status" variant="underlined" :items="status" item-title="text"
                         item-value="value"></v-select>
                 </v-col>
-                <v-col class="d-flex align-center ga-1">
-                    <v-btn>All</v-btn>
-                    <v-btn>Self</v-btn>
+                <v-col class="d-flex align-center">
+                    <v-btn size="small">All</v-btn>
+                    <v-btn size="small">Self</v-btn>
                 </v-col>
                 <v-col class="d-flex align-center justify-end ga-1">
                     <v-btn>
@@ -28,7 +28,7 @@
             </v-row>
 
             <v-row>
-                <v-data-table :headers="headers" header :items="requestTable" items-per-page="5">
+                <v-data-table :headers="headers" :items="requestTable" items-per-page="5">
                     <template v-slot:item.prNo="{ value }">
                         <v-btn size="small" color="primary" rounded>
                             {{ value }}
@@ -90,13 +90,13 @@ let requestTable = ref([
 ]);
 
 let headers = ref([
-    { title: 'PR No', value: 'prNo' },
-    { title: 'Requestor', value: 'requestor' },
-    { title: 'Purpose', value: 'purpose' },
-    { title: 'Items', value: 'items' },
-    { title: 'Amount', value: 'amount' },
-    { title: 'Date', value: 'date' },
-    { title: 'Status', value: 'status', align: "center" },
+    { title: 'PR No', value: 'prNo', sortable: true },
+    { title: 'Requestor', value: 'requestor', sortable: true },
+    { title: 'Purpose', value: 'purpose', sortable: true },
+    { title: 'Items', value: 'items', sortable: true },
+    { title: 'Amount', value: 'amount', sortable: true },
+    { title: 'Date', value: 'date', sortable: true },
+    { title: 'Status', value: 'status', align: "center", sortable: true },
     { title: '', value: 'button' },
 ]);
 
