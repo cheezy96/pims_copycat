@@ -1,8 +1,8 @@
 <template>
     <div>
         <v-container>
-            <v-row rows="1">
-                <v-col cols="4" v-for="name in names" :key="name">
+            <v-row md="1" xs="12">
+                <v-col md="4" sm="12" xs="12" v-for="name in names" :key="name">
                     <v-text-field color="primary" :label="name.title" v-model="name.value" variant="underlined"></v-text-field>
                 </v-col>
             </v-row>
