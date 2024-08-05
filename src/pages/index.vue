@@ -16,7 +16,9 @@
             <MainComponent />
           </v-tabs-window-item>
 
-          <v-tabs-window-item value="two"> Two </v-tabs-window-item>
+          <v-tabs-window-item value="two">
+            <RequestComp />
+          </v-tabs-window-item>
 
           <v-tabs-window-item value="three"> Three </v-tabs-window-item>
           <v-tabs-window-item value="four"> Three </v-tabs-window-item>
@@ -28,6 +30,7 @@
 </template>
 
 <script setup>
+import RequestComp from "@/components/pims/request/RequestComp.vue";
 import MainComponent from "../components/pims/main/MainComponent.vue";
 import SettingsComp from "../components/pims/setting/SettingsComp.vue";
 import { ref } from "vue";

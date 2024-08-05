@@ -5,8 +5,9 @@
  */
 
 // Composables
-import { createRouter, createWebHistory } from 'vue-router'
-import index from '@/pages/index.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import index from "@/pages/index.vue";
+import requestPage from "@/components/pims/request/RequestComp.vue";
 // import { setupLayouts } from 'virtual:generated-layouts'
 // import { routes } from 'vue-router/auto-routes'
 
@@ -14,12 +15,17 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: "/",
+      name: "home",
       component: index,
-    }
-  ]
-})
+    },
+    {
+      path: "/request",
+      name: "Request Page",
+      component: requestPage,
+    },
+  ],
+});
 
 // Workaround for https://github.com/vitejs/vite/issues/11804
 // router.onError((err, to) => {
@@ -40,4 +46,4 @@ const router = createRouter({
 //   localStorage.removeItem('vuetify:dynamic-reload')
 // })
 
-export default router
+export default router;
