@@ -27,7 +27,9 @@
             <SupplierComp />
           </v-tabs-window-item>
 
-          <v-tabs-window-item value="four"> Three </v-tabs-window-item>
+          <v-tabs-window-item value="four">
+            <DepartmentComp />
+          </v-tabs-window-item>
 
           <v-tabs-window-item value="five">
             <SettingsComp />
@@ -44,6 +46,7 @@ import MainComp from "../components/pims/main/MainComp.vue";
 import SettingsComp from "../components/pims/setting/SettingsComp.vue";
 import SupplierComp from "../components/pims/supplier/SupplierComp.vue";
 import { ref } from "vue";
+import DepartmentComp from "@/components/pims/department/DepartmentComp.vue";
 
 let tab = ref(null);
 </script>
