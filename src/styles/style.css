@@ -1,0 +1,12 @@
+
+/* v-text-field focused */
+.v-input--selection-controls.v-input--is-focused .v-input__slot .v-text-field__prefix .v-icon,
+.v-input--selection-controls.v-input--is-focused .v-input__slot .v-text-field__suffix .v-icon,
+.v-input--selection-controls.v-input--is-focused .v-input__slot .v-text-field__prepend-inner .v-icon,
+.v-input--selection-controls.v-input--is-focused .v-input__slot .v-text-field__append-inner .v-icon,
+.v-input--selection-controls.v-input--is-focused .v-input__slot .v-text-field__prefix .v-icon:before,
+.v-input--selection-controls.v-input--is-focused .v-input__slot .v-text-field__suffix .v-icon:before,
+.v-input--selection-controls.v-input--is-focused .v-input__slot .v-text-field__prepend-inner .v-icon:before,
+.v-input--selection-controls.v-input--is-focused .v-input__slot .v-text-field__append-inner .v-icon:before {
+    color: red;
+}

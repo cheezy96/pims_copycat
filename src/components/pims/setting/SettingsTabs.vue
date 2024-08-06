@@ -1,5 +1,6 @@
 <template>
   <v-container class="d-flex justify-center">
+    <SettingsResetDialog ref="settingsResetDialog"></SettingsResetDialog>
     <v-card width="950">
       <v-tabs color="primary" v-model="tab">
         <v-tab value="one">Others</v-tab>
@@ -22,7 +23,7 @@
 
       <v-divider></v-divider>
       <v-card-actions>
-        <v-btn color="orange">RESET</v-btn>
+        <v-btn color="orange" @click="settingsResetDialog.openDialog()">RESET</v-btn>
         <v-spacer></v-spacer>
         <v-btn color="primary">Save</v-btn>
       </v-card-actions>
@@ -34,7 +35,9 @@
 import { ref } from "vue";
 import SettingsTabsPersonnel from "./SettingsTabsPersonnel.vue";
 import SettingsTabsBacMember from "./SettingsTabsBacMember.vue";
+import SettingsResetDialog from "./SettingsResetDialog.vue";
 
+let settingsResetDialog = ref();
 let tab = ref(null);
 </script>
 
