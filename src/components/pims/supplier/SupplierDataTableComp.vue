@@ -1,4 +1,5 @@
 <template>
+  <SupplierDialogComp ref="supplierDialogComp"></SupplierDialogComp>
   <v-data-table
     :headers="headers"
     :items="items"
@@ -19,6 +20,7 @@
           variant="outlined"
           class="border-sm bg-grey-lighten-5 rounded-0 rounded-ts rounded-bs border-e-thin"
           size="small"
+          @click="supplierDialogComp.openDialog()"
         >
           <v-icon>mdi-pencil</v-icon>
         </v-btn>
@@ -36,6 +38,10 @@
 
 <script setup>
 import { ref } from "vue";
+import SupplierDialogComp from "./SupplierDialogComp.vue";
+
+
+let supplierDialogComp = ref();
 let headers = ref([
   { title: "ID", value: "id", align: "start", sortable: true },
   { title: "Name", value: "name", align: "start", sortable: true },
