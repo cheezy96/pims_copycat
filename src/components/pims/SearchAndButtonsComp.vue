@@ -24,8 +24,6 @@
 
 <script setup></script>
 
-<style>
-
-</style>
+<style></style>
 
 <style scoped></style>

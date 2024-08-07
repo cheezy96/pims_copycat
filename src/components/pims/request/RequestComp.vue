@@ -1,12 +1,15 @@
 <template>
+  <prDialog v-model="dialogPRNo" />
+
   <v-app>
-    <v-container class="w-80">
+    <v-container class="w-80" style="max-width: 1200px">
       <v-row align="center" justify="center">
         <v-col sm="4" md="2" cols="12">
           <v-text-field
             v-model="search"
             prepend-icon="mdi-magnify"
             label="Search"
+            color="primary"
             variant="underlined"
           ></v-text-field>
         </v-col>
@@ -17,6 +20,7 @@
             :items="departments"
             item-title="text"
             item-value="value"
+            color="primary"
           ></v-select>
         </v-col>
         <v-col sm="3" md="2" cols="12">
@@ -26,6 +30,7 @@
             :items="status"
             item-title="text"
             item-value="value"
+            color="primary"
           ></v-select>
         </v-col>
         <v-col sm="3" md="2" cols="12">
@@ -83,70 +88,8 @@
 
               <td>
                 <div class="d-flex justify-center ga-1">
-                  <v-menu location="bottom">
-                    <template v-slot:activator="{ props }">
-                      <v-btn
-                        size="small"
-                        color="primary"
-                        v-bind="props"
-                        rounded
-                      >
-                        <v-icon>mdi-printer</v-icon>
-                      </v-btn>
-                    </template>
-
-                    <v-list>
-                      <v-list-item
-                        v-for="(item, index) in printMenu.first"
-                        :key="index"
-                      >
-                        <v-list-item-title>{{ item.title }}</v-list-item-title>
-                      </v-list-item>
-
-                      <v-divider></v-divider>
-
-                      <v-list-item
-                        v-for="(item, index) in printMenu.second"
-                        :key="index"
-                      >
-                        <v-list-item-title>{{ item.title }}</v-list-item-title>
-                      </v-list-item>
-
-                      <v-divider></v-divider>
-
-                      <v-list-item
-                        v-for="(item, index) in printMenu.third"
-                        :key="index"
-                      >
-                        <v-list-item-title>{{ item.title }}</v-list-item-title>
-                      </v-list-item>
-                    </v-list>
-                  </v-menu>
-
-                  <v-menu location="bottom">
-                    <template v-slot:activator="{ props }">
-                      <v-btn
-                        size="small"
-                        color="primary"
-                        v-bind="props"
-                        rounded
-                      >
-                        <v-icon>mdi-cog</v-icon>
-                      </v-btn>
-                    </template>
-
-                    <v-list>
-                      <v-list-item
-                        v-for="(item, index) in settingMenu"
-                        :key="index"
-                      >
-                        <v-list-item-title>
-                          <v-icon>{{ item.icon }}</v-icon>
-                          {{ item.title }}
-                        </v-list-item-title>
-                      </v-list-item>
-                    </v-list>
-                  </v-menu>
+                  <printComp />
+                  <actionButtonComp />
                 </div>
               </td>
             </tr>
@@ -154,63 +97,14 @@
         </v-data-table>
       </v-row>
     </v-container>
-
-    <v-dialog v-model="dialogPRNo" width="auto">
-      <v-card width="800px" max-width="100%">
-        <v-card-title class="bg-primary pa-4"> PR Numbers </v-card-title>
-        <v-card-text class="px-4 pt-0" color="light">
-          <v-row class="mt-2" align="center" justify="center">
-            <v-col sm="12" md="3" cols="12">
-              <v-text-field
-                variant="underlined"
-                label="PR Number"
-                prepend-icon="mdi-barcode"
-              ></v-text-field>
-            </v-col>
-            <v-col sm="12" md="3" cols="12">
-              <v-text-field
-                variant="underlined"
-                label="Abstract Number"
-                prepend-icon="mdi-barcode"
-              ></v-text-field>
-            </v-col>
-            <v-col sm="12" md="3" cols="12">
-              <v-text-field
-                variant="underlined"
-                label="PO Number"
-                prepend-icon="mdi-barcode"
-              ></v-text-field>
-            </v-col>
-            <v-col sm="12" md="3" cols="12">
-              <v-text-field
-                variant="underlined"
-                label="IAR Number"
-                prepend-icon="mdi-barcode"
-              ></v-text-field>
-            </v-col>
-            <v-col sm="12" md="4" cols="12">
-              <v-select
-                :items="endUser"
-                variant="underlined"
-                label="End User"
-              ></v-select>
-            </v-col>
-          </v-row>
-        </v-card-text>
-
-        <v-divider theme="light"></v-divider>
-
-        <v-card-actions>
-          <v-btn disabled>Submit</v-btn>
-          <v-btn>Close</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
   </v-app>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import prDialog from "./PRDialog.vue";
+import printComp from "./PrintComp.vue";
+import actionButtonComp from "./ActionButtonComp.vue";
 
 let dialogPRNo = ref(false);
 let dialogStatus = ref(false);
@@ -324,40 +218,6 @@ let headers = ref([
   { title: "Date", value: "date", sortable: true },
   { title: "Status", value: "status", sortable: true },
   { title: "", value: "button" },
-]);
-
-let endUser = ref([
-  { title: "Admin" },
-  { title: "DIT Student Support" },
-  { title: "Ycker Ponio" },
-]);
-
-let printMenu = ref({
-  first: [
-    { title: "RIS No" },
-    { title: "Purchase Request" },
-    { title: "Price Quotation Form" },
-    { title: "Request For Quotation" },
-  ],
-  second: [
-    { title: "BAC Resolution" },
-    { title: "Abstract" },
-    { title: "Purchase Order" },
-    { title: "IAR" },
-    { title: "Notice of Delivery" },
-  ],
-  third: [
-    { title: "Inventory Custodian Slip" },
-    { title: "PAR Report" },
-    { title: "RIS Yes" },
-  ],
-});
-
-let settingMenu = ref([
-  { title: "Bids", icon: "mdi-tag" },
-  { title: "View", icon: "mdi-eye" },
-  { title: "Force Edit", icon: "mdi-pencil" },
-  { title: "Personnel", icon: "mdi-pencil" },
 ]);
 
 let toggle_btn = ref(0);
