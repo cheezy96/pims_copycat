@@ -9,6 +9,7 @@
             v-model="search"
             prepend-icon="mdi-magnify"
             label="Search"
+            color="primary"
             variant="underlined"
           ></v-text-field>
         </v-col>
@@ -19,6 +20,7 @@
             :items="departments"
             item-title="text"
             item-value="value"
+            color="primary"
           ></v-select>
         </v-col>
         <v-col sm="3" md="2" cols="12">
@@ -28,6 +30,7 @@
             :items="status"
             item-title="text"
             item-value="value"
+            color="primary"
           ></v-select>
         </v-col>
         <v-col sm="3" md="2" cols="12">
