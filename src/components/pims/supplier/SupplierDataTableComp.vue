@@ -4,14 +4,12 @@
     :items="items"
     item-key="name"
     items-per-page="10"
-    :items-per-page-options="
-       [
-        { value: 5, title: '5' },
-        { value: 10, title: '10' },
-        { value: 15, title: '15' },
-        { value: -1, title: '$vuetify.dataFooter.itemsPerPageAll' },
-      ] 
-    "
+    :items-per-page-options="[
+      { value: 5, title: '5' },
+      { value: 10, title: '10' },
+      { value: 15, title: '15' },
+      { value: -1, title: '$vuetify.dataFooter.itemsPerPageAll' },
+    ]"
     color="#033"
     ><template #item.action="{ item }">
       <div>

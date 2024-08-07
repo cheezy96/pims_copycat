@@ -8,6 +8,7 @@
             prepend-icon="mdi-magnify"
             label="Search"
             variant="underlined"
+            color="primary"
           ></v-text-field>
         </v-col>
 

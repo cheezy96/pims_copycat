@@ -8,7 +8,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import index from "@/pages/index.vue";
 import requestPage from "@/components/pims/request/RequestComp.vue";
-import DepartmentComp from "@/components/pims/department/DepartmentComp.vue";
+import AbstractPrint from "@/components/pims/printable/request/AbstractPrint.vue";
 // import { setupLayouts } from 'virtual:generated-layouts'
 // import { routes } from 'vue-router/auto-routes'
 
@@ -26,9 +26,9 @@ const router = createRouter({
       component: requestPage,
     },
     {
-      path: "/department",
-      name: "Departmemt Page",
-      component: DepartmentComp,
+      path: "/print",
+      name: "Printable Purchase Order",
+      component: AbstractPrint,
     },
   ],
 });
