@@ -1,4 +1,5 @@
 <template>
+  <SupplierDialogComp ref="supplierDialogComp"></SupplierDialogComp>
   <div class="d-flex justify-space-around w-100">
     <div>
       <v-text-field
@@ -12,7 +13,7 @@
     </div>
     <v-spacer></v-spacer>
     <div class="pa-2 my-auto d-flex ga-2">
-      <v-btn color="primary">
+      <v-btn color="primary" @click="supplierDialogComp.openDialog()">
         <v-icon size="x-large">mdi-plus</v-icon>
       </v-btn>
       <v-btn color="primary">
@@ -22,7 +23,13 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import SupplierDialogComp from "./supplier/SupplierDialogComp.vue";
+
+
+let supplierDialogComp = ref();
+</script>
 
 <style></style>
 
