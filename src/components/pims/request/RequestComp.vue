@@ -1,5 +1,6 @@
 <template>
   <prDialog v-model="dialogPRNo" />
+  <statusTimeline v-model="dialogStatus" />
 
   <v-app>
     <v-container class="w-80" style="max-width: 1200px">
@@ -105,6 +106,7 @@ import { ref } from "vue";
 import prDialog from "./PRDialog.vue";
 import printComp from "./PrintComp.vue";
 import actionButtonComp from "./ActionButtonComp.vue";
+import StatusTimeline from "./StatusTimeline.vue";
 
 let dialogPRNo = ref(false);
 let dialogStatus = ref(false);

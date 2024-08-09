@@ -22,19 +22,41 @@
         </v-col>
       </v-row>
 
-      <DepartmentTable
+      <v-data-table
         :search="search"
         :headers="headers"
         :items="departments"
         items-per-page="10"
-      />
+      >
+        <template v-slot:item="{ item }">
+          <tr>
+            <td></td>
+            <td>{{ item.title }}</td>
+            <td>
+              <v-btn-toggle style="height: 30px">
+                <v-btn
+                  variant="outlined"
+                  class="border-sm bg-grey-lighten-5"
+                  size="small"
+                  ><v-icon>mdi-pencil</v-icon></v-btn
+                >
+                <v-btn
+                  variant="outlined"
+                  class="border-sm bg-grey-lighten-5"
+                  size="small"
+                  ><v-icon>mdi-delete</v-icon></v-btn
+                >
+              </v-btn-toggle>
+            </td>
+          </tr>
+        </template>
+      </v-data-table>
     </v-container>
   </v-app>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import DepartmentTable from "./DepartmentTable.vue";
 
 let search = ref("");
 let headers = ref([
@@ -44,6 +66,11 @@ let headers = ref([
 ]);
 
 let departments = ref([
+  { title: "DIT" },
+  { title: "DIT" },
+  { title: "DIT" },
+  { title: "DIT" },
+  { title: "DIT" },
   { title: "DIT" },
   { title: "DIT" },
   { title: "DIT" },

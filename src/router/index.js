@@ -31,11 +31,6 @@ const router = createRouter({
       name: "Printable Purchase Order",
       component: AbstractPrint,
     },
-    {
-      path: "/timeline",
-      name: "TIMELINE",
-      component: StatusTimeline,
-    },
   ],
 });
 

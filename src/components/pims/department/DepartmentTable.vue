@@ -1,5 +1,5 @@
 <template>
-  <v-data-table hide-defualt-footer>
+  <v-data-table>
     <template v-slot:item="{ item }">
       <tr>
         <td></td>
