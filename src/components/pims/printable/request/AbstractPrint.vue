@@ -1,8 +1,18 @@
 <template>
   <body>
-    <div class="header">
-      <h3>ABSTRACT OF PRICE QUOTATION</h3>
-      <h4>Date: Invalid date</h4>
+    <div class="headerContainer">
+      <div class="header">
+        <h3>ABSTRACT OF PRICE QUOTATION</h3>
+        <h4>Date: Invalid date</h4>
+      </div>
+
+      <div class="sideHeader">
+        <h3>TESDA-OP-AS-04-F04</h3>
+        <h3>Rev. No. 01 - 07/21/21</h3>
+
+        <h3>PR No.: <span></span></h3>
+        <h3>End-User: <span></span></h3>
+      </div>
     </div>
 
     <table>
@@ -164,7 +174,7 @@ let items = ref([
 
 .header {
   text-align: center;
-  margin: 20px 0;
+  padding: 30px 0;
 }
 .header h3 {
   font-size: 14px;
@@ -172,6 +182,20 @@ let items = ref([
 }
 .header h4 {
   font-weight: 500;
+}
+.headerContainer {
+  position: relative;
+}
+.sideHeader {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.sideHeader h3:nth-child(2) {
+  padding-bottom: 10px;
+}
+.sideHeader h3 span {
+  text-decoration: underline;
 }
 
 table {
@@ -206,7 +230,7 @@ table tbody:nth-child(1n + 4) tr:nth-child(2) th {
   padding-bottom: 10px;
 }
 table tbody:nth-child(1n + 4) tr td,
-table tbody:nth-child(1n + 3) tr th {
+table tbody:nth-child(1n + 4) tr th {
   padding: 0 5px;
   margin: 0;
   height: 0;
