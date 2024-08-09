@@ -1,7 +1,9 @@
 <template>
   <v-app>
-    <v-container style="max-width: 900px">
-      <v-row align="center" justify="center">
+    <DepartmentDialog ref="departmentDialog"></DepartmentDialog>
+    <v-container style="max-width: 900px" class="mt-n3">
+      <DepartementSearchAndButtonsComp></DepartementSearchAndButtonsComp>
+      <!-- <v-row align="center" justify="center">
         <v-col md="4" cols="12">
           <v-text-field
             v-model="search"
@@ -20,7 +22,7 @@
             <v-icon>mdi-refresh</v-icon>
           </v-btn>
         </v-col>
-      </v-row>
+      </v-row> -->
 
       <v-data-table
         :search="search"
@@ -38,6 +40,7 @@
                   variant="outlined"
                   class="border-sm bg-grey-lighten-5"
                   size="small"
+                  @click="departmentDialog.openDialog()"
                   ><v-icon>mdi-pencil</v-icon></v-btn
                 >
                 <v-btn
@@ -57,7 +60,10 @@
 
 <script setup>
 import { ref } from "vue";
+import DepartmentDialog from "./DepartmentDialog.vue";
+import DepartementSearchAndButtonsComp from "./DepartementSearchAndButtonsComp.vue";
 
+let departmentDialog = ref();
 let search = ref("");
 let headers = ref([
   { title: "Index", align: "start", sortable: true },

@@ -1,25 +1,41 @@
 <template>
-  <v-dialog>
-    <v-container class="bg-white rounded" style="max-width: 600px">
-      <v-timeline theme="light" density="comfortable" size="100" width="100%">
-        <v-timeline-item dot-color="teal" size="large" fill-dot>
-          <template v-slot:icon>
-            <v-icon>mdi-chat</v-icon>
-          </template>
-
-          <v-text-field
-            variant="plain"
-            placeholder="Status details(Optional)"
-            hide-details
-            class="align-center"
-          >
-            <template v-slot:append>
-              <v-btn variant="plain" class="bg-grey-lighten-4">Post</v-btn>
+  <v-dialog max-width="500">
+    <v-card class="pb-10">
+      <v-container class="bg-white rounded">
+        <v-timeline theme="light" density="comfortable" size="100" width="100%">
+          <v-timeline-item dot-color="teal" size="x-large" fill-dot>
+            <template size="large" v-slot:icon>
+              <v-icon>mdi-chat</v-icon>
             </template>
-          </v-text-field>
-        </v-timeline-item>
-      </v-timeline>
-    </v-container>
+
+            <div
+              style="
+                width: 350px;
+                display: flex;
+                gap: 2px;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <div style="width: 100%">
+                <v-text-field
+                  variant="plain"
+                  placeholder="Status details(Optional)"
+                  hide-details
+                  density="compact"
+                  class="align-center pb-2"
+                >
+                </v-text-field>
+              </div>
+              <v-spacer></v-spacer>
+              <div>
+                <v-btn variant="plain" class="bg-grey-lighten-2">Post</v-btn>
+              </div>
+            </div>
+          </v-timeline-item>
+        </v-timeline>
+      </v-container>
+    </v-card>
   </v-dialog>
 </template>
 
