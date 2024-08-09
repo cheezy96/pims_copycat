@@ -8,15 +8,15 @@
     <table>
       <thead>
         <tr>
-          <th style="width: 20%">Item No.</th>
-          <th style="width: 50%" colspan="3">Article/Description</th>
+          <th style="width: 10%">Item No.</th>
+          <th style="width: 60%" colspan="3">Article/Description</th>
           <th style="width: 30%">Lowest Calculated and Responsive Quotation</th>
         </tr>
         <tr>
           <th></th>
-          <th>Qty</th>
-          <th>Unit</th>
-          <th>Description</th>
+          <th style="width: 10%">Qty</th>
+          <th style="width: 10%">Unit</th>
+          <th style="width: 40%">Description</th>
           <th></th>
         </tr>
         <tr>
@@ -28,21 +28,45 @@
       </thead>
 
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>1</td>
-          <td>pax</td>
+        <tr v-for="item in items" :key="item.id">
+          <td>{{ item.id }}</td>
+          <td>{{ item.qty }}</td>
+          <td>{{ item.unit }}</td>
           <td style="text-align: start">
-            Airfare (Dvo-Mnl-Dvo) (Jestony Mark P. Aprong)
+            {{ item.description }}
           </td>
           <td></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>xxx nothing follows xxx</td>
+          <td></td>
+        </tr>
+      </tbody>
+
+      <tbody>
+        <tr>
+          <td>for Bids and Awards Committee</td>
         </tr>
       </tbody>
     </table>
   </body>
 </template>
 
-<script setup></script>
+<script setup>
+let items = ref([
+  {
+    id: 1,
+    qty: 2,
+    unit: "unit",
+    description:
+      "Airfare during the process of documents for Visa and Diploma Passport",
+  },
+]);
+</script>
 
 <style scoped>
 * {
