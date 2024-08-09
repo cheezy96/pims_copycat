@@ -8,8 +8,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import index from "@/pages/index.vue";
 import requestPage from "@/components/pims/request/RequestComp.vue";
-import AbstractPrint from "@/components/pims/printable/request/AbstractPrint.vue";
-import StatusTimeline from "@/components/pims/request/StatusTimeline.vue";
+import InventoryCustodianSlip from "@/components/pims/printable/request/InventoryCustodianSlip.vue";
 // import { setupLayouts } from 'virtual:generated-layouts'
 // import { routes } from 'vue-router/auto-routes'
 
@@ -29,7 +28,7 @@ const router = createRouter({
     {
       path: "/print",
       name: "Printable Purchase Order",
-      component: AbstractPrint,
+      component: InventoryCustodianSlip,
     },
   ],
 });

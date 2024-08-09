@@ -174,7 +174,7 @@ let items = ref([
 
 .header {
   text-align: center;
-  padding: 30px 0;
+  margin: 20px 0;
 }
 .header h3 {
   font-size: 14px;
