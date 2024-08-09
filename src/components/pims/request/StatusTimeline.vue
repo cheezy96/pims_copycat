@@ -1,7 +1,7 @@
 <template>
-  <v-dialog style="width: 500px">
+  <v-dialog>
     <v-container class="bg-white rounded" style="max-width: 600px">
-      <v-timeline theme="light" density="comfortable" width="100%">
+      <v-timeline theme="light" density="comfortable" size="100" width="100%">
         <v-timeline-item dot-color="teal" size="large" fill-dot>
           <template v-slot:icon>
             <v-icon>mdi-chat</v-icon>
@@ -11,7 +11,7 @@
             variant="plain"
             placeholder="Status details(Optional)"
             hide-details
-            class="d-flex align-center w-100"
+            class="align-center"
           >
             <template v-slot:append>
               <v-btn variant="plain" class="bg-grey-lighten-4">Post</v-btn>
