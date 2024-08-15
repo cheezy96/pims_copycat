@@ -20,7 +20,7 @@
       <v-list-item
         v-for="(item, index) in printMenu.second"
         :key="index"
-        @click="print(item.print)"
+        @click="print(item.print, item.card)"
       >
         <v-list-item-title>{{ item.title }}</v-list-item-title>
       </v-list-item>
@@ -42,8 +42,34 @@
 import router from "@/router";
 import { ref } from "vue";
 
-function print(title) {
-  if (!title) return;
+let printMenu = ref({
+  first: [
+    { title: "RIS No" },
+    { title: "Purchase Request" },
+    { title: "Price Quotation Form" },
+    { title: "Request For Quotation" },
+  ],
+  second: [
+    { title: "BAC Resolution" },
+    { title: "Abstract", print: "AbstractPrintView" },
+    { title: "Purchase Order", card: true },
+    { title: "IAR" },
+    { title: "Notice of Delivery" },
+  ],
+  third: [
+    { title: "Inventory Custodian Slip", print: "InventoryCustodianSlip" },
+    { title: "PAR" },
+    { title: "PAR Report" },
+    { title: "RIS Yes" },
+  ],
+});
+
+function print(title, card) {
+  if (!title && !card) return;
+  else if (card && !title) {
+    console.log("card");
+    return;
+  }
 
   let url = router.resolve({
     name: title,
@@ -61,28 +87,6 @@ function print(title) {
   }, 500);
   return false;
 }
-
-let printMenu = ref({
-  first: [
-    { title: "RIS No" },
-    { title: "Purchase Request" },
-    { title: "Price Quotation Form" },
-    { title: "Request For Quotation" },
-  ],
-  second: [
-    { title: "BAC Resolution" },
-    { title: "Abstract", print: "AbstractPrintView" },
-    { title: "Purchase Order" },
-    { title: "IAR" },
-    { title: "Notice of Delivery" },
-  ],
-  third: [
-    { title: "Inventory Custodian Slip", print: "InventoryCustodianSlip" },
-    { title: "PAR" },
-    { title: "PAR Report" },
-    { title: "RIS Yes" },
-  ],
-});
 </script>
 
 <style lang="scss" scoped></style>
