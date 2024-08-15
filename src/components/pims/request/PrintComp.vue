@@ -40,7 +40,9 @@
 
 <script setup>
 import router from "@/router";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+
+let printCardDialog = ref(false);
 
 let printMenu = ref({
   first: [
@@ -67,7 +69,7 @@ let printMenu = ref({
 function print(title, card) {
   if (!title && !card) return;
   else if (card && !title) {
-    console.log("card");
+    toggleDialog();
     return;
   }
 
@@ -86,6 +88,11 @@ function print(title, card) {
     document.body.removeChild(frame1);
   }, 500);
   return false;
+}
+
+function toggleDialog() {
+  printCardDialog.value = true;
+  console.log(printCardDialog.value);
 }
 </script>
 

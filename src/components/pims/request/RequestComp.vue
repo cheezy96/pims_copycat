@@ -103,7 +103,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import prDialog from "./PRDialog.vue";
 import printComp from "./PrintComp.vue";
 import actionButtonComp from "./ActionButtonComp.vue";
@@ -112,7 +112,7 @@ import PrintDialogCard from "./PrintDialogCard.vue";
 
 let dialogPRNo = ref(false);
 let dialogStatus = ref(false);
-let printCardDialog = ref(true);
+let printCardDialog = ref(false);
 
 let departments = ref([
   { text: "All", value: "all" },
