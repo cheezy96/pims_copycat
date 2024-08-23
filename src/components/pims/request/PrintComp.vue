@@ -40,9 +40,9 @@
 
 <script setup>
 import router from "@/router";
-import { onMounted, ref } from "vue";
+import { ref, defineEmits } from "vue";
 
-let printCardDialog = ref(false);
+const emit = defineEmits(['showPrintDialog']);
 
 let printMenu = ref({
   first: [
@@ -55,23 +55,23 @@ let printMenu = ref({
     { title: "BAC Resolution" },
     { title: "Abstract", print: "AbstractPrintView" },
     { title: "Purchase Order", card: true },
-    { title: "IAR" },
-    { title: "Notice of Delivery" },
+    { title: "IAR", card: true },
+    { title: "Notice of Delivery", card: true },
   ],
   third: [
     { title: "Inventory Custodian Slip", print: "InventoryCustodianSlip" },
-    { title: "PAR" },
-    { title: "PAR Report" },
-    { title: "RIS Yes" },
+    { title: "PAR", card: true },
+    { title: "PAR Report", card: true },
+    { title: "RIS Yes", card: true },
   ],
 });
 
 function print(title, card) {
-  if (!title && !card) return;
-  else if (card && !title) {
-    toggleDialog();
+  if (card) {
+    emit('showPrintDialog');
     return;
   }
+    console.log("Print Card");
 
   let url = router.resolve({
     name: title,
@@ -90,10 +90,7 @@ function print(title, card) {
   return false;
 }
 
-function toggleDialog() {
-  printCardDialog.value = true;
-  console.log(printCardDialog.value);
-}
+
 </script>
 
 <style lang="scss" scoped></style>

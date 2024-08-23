@@ -1,7 +1,7 @@
 <template>
   <prDialog v-model="dialogPRNo" />
   <statusTimeline v-model="dialogStatus" />
-  <PrintDialogCard v-model="printCardDialog" />
+  <PrintDialogCard v-model="printCardDialog"  /> 
 
   <v-app>
     <v-container class="w-80" style="max-width: 1200px">
@@ -90,7 +90,7 @@
 
               <td>
                 <div class="d-flex justify-center ga-1">
-                  <printComp />
+                  <printComp @show-print-dialog="toggleCard()" />
                   <actionButtonComp />
                 </div>
               </td>
@@ -103,7 +103,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import {  ref } from "vue";
 import prDialog from "./PRDialog.vue";
 import printComp from "./PrintComp.vue";
 import actionButtonComp from "./ActionButtonComp.vue";
@@ -113,6 +113,10 @@ import PrintDialogCard from "./PrintDialogCard.vue";
 let dialogPRNo = ref(false);
 let dialogStatus = ref(false);
 let printCardDialog = ref(false);
+
+function toggleCard() {
+  printCardDialog.value = !printCardDialog.value;
+}
 
 let departments = ref([
   { text: "All", value: "all" },
@@ -231,7 +235,8 @@ function getColor(status) {
   if (status == "new") return "warning";
   else if (status == "cancelled") return "error";
   else if (status == "received") return "primary";
-}
+};
+
 </script>
 
 <style lang="scss" scoped></style>
